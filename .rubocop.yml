@@ -1,0 +1,149 @@
+require: rubocop-rspec
+
+AllCops:
+  Exclude:
+    - 'app/admin/**/*'
+    - 'bin/*'
+    - 'db/**/*'
+    - 'config/**/*'
+    - 'vendor/bundle/**/*'
+    - 'Gemfile'
+    - 'spec/rails_helper.rb'
+    - 'spec/spec_helper.rb'
+    - 'spec/spec_helper.rb'
+    - 'lib/tasks/import_counties.rake'
+
+# Commonly used screens these days easily fit more than 80 characters.
+Metrics/LineLength:
+  Max: 120
+
+Metrics/ClassLength:
+  Max: 250
+
+Metrics/ModuleLength:
+  Max: 250
+
+Metrics/CyclomaticComplexity:
+  Max: 7
+
+Metrics/MethodLength:
+  Max: 25
+
+# We do not need to support Ruby 1.9, so this is good to use.
+Style/SymbolArray:
+  Enabled: false
+
+Style/GlobalVars:
+  Enabled: false
+
+# Mixing the styles looks just silly.
+Style/HashSyntax:
+  EnforcedStyle: ruby19_no_mixed_keys
+
+Layout/IndentFirstHashElement:
+  EnforcedStyle: consistent
+
+Layout/AlignHash:
+  Enabled: false
+
+RSpec/NamedSubject:
+  Enabled: false
+
+RSpec/InstanceVariable:
+  Enabled: false
+
+Layout/CaseIndentation:
+  EnforcedStyle: end
+
+Layout/ClassStructure:
+  Enabled: true
+  Categories:
+    module_inclusion:
+      - include
+      - prepend
+      - extend
+    attributes:
+      - attribute
+      - attr_reader
+      - attr_writer
+      - attr_accessor
+    associations:
+      - belongs_to
+      - has_one
+      - has_many
+      - has_and_belongs_to_many
+    validations:
+      - validate
+      - validates
+      - validates_presence_of
+      - validates_uniqueness_of
+    hooks:
+      - before_initialize
+      - before_save
+      - before_create
+      - before_update
+      - after_initialize
+      - after_save
+      - after_create
+      - after_update
+  ExpectedOrder:
+      - module_inclusion
+      - associations
+      - validations
+      - hooks
+      - attributes
+      - constants
+      - initializer
+      - public_class_methods
+      - public_methods
+      - private_methods
+      - protected_methods
+
+Layout/IndentationConsistency:
+  EnforcedStyle: indented_internal_methods
+
+Layout/MultilineMethodCallIndentation:
+  EnforcedStyle: indented
+
+Layout/SpaceInLambdaLiteral:
+  EnforcedStyle: require_space
+
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
+Style/Documentation:
+  Enabled: false
+
+Metrics/BlockLength:
+  Enabled: false
+
+Style/EmptyMethod:
+  EnforcedStyle: expanded
+
+Style/ClassAndModuleChildren:
+  Enabled: false
+
+RSpec/FilePath:
+  Enabled: false
+
+Style/UnlessElse:
+  Enabled: false
+
+Metrics/AbcSize:
+  Enabled: false
+
+Lint/HandleExceptions:
+  Enabled: false
+
+Lint/UnderscorePrefixedVariableName:
+  Enabled: false
+
+# Rspec
+RSpec/MultipleExpectations:
+  Enabled: false
+
+RSpec/NestedGroups:
+  Enabled: false
+
+RSpec/ExampleLength:
+  Max: 10
